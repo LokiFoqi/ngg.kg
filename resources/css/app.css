@@ -1,3 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* -- Главная страница -- */
+body{
+    background-color: #f8f9fa; /* Светло-серый фон */
+}
+.navbar{
+    background-color: #e9ecef; /* Немного темнее светло-серый фон */
+    border-bottom: 1px solid #ced4da; /* Серый бордюр снизу */
+}
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+
+.navbar-brand {
+    color: #0056b3;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand:hover {
+    color: #0056b3 !important; /* Фиксируем цвет логотипа */
+    text-decoration: none; /* Убираем возможное подчеркивание */
+}
+
+
+.navbar-nav .nav-item {
+    margin-left: 20px; /* Для равномерных отступов между пунктами */
+}
+.navbar-nav .nav-link {
+    color: #212529; /* Серый цвет для неактивных ссылок */
+    font-weight: 500;
+    transition: 0.3s;
+}
+.navbar-nav .nav-link:hover {
+    color: #0056b3; /* Синий цвет для активных ссылок */
+    text-decoration: none; /* Убираем возможное подчеркивание */
+}
+.navbar-nav .nav-link.active {
+    font-weight: 700; /* Жирный */
+}
