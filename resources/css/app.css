@@ -1,5 +1,40 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+/* -- Основные -- */
+@media (max-width: 768px) { /* Для экранов меньше 768px (например, телефонов) */
+    .navbar-brand {
+        font-size: 1rem; /* Уменьшаем размер шрифта */
+    }
+
+    .main-content {
+        padding: 30px 15px; /* Уменьшаем отступы на мобильных устройствах */
+    }
+
+    .main-content h1 {
+        font-size: 2rem; /* Меньший размер заголовка на мобильных устройствах */
+    }
+
+    .main-content p {
+        font-size: 1rem; /* Меньший размер текста */
+    }
+}
+html, body {
+    height: 100%; /* Задаем высоту для всей страницы */
+    margin: 0; /* Убираем стандартные отступы */
+}
+body {
+    display: flex;
+    flex-direction: column; /* Размещение элементов по вертикали */
+    min-height: 100vh; /* Минимальная высота равна 100% высоты экрана */
+}
+.main-content {
+    flex: 1; /* Этот блок займет все пространство между верхней частью и футером */
+}
+footer {
+    margin-top: auto; /* Перемещаем футер в самый низ */
+}
+
+
 /* -- Главная страница -- */
 body{
     background-color: #f8f9fa; /* Светло-серый фон */
@@ -40,3 +75,121 @@ body{
 .navbar-nav .nav-link.active {
     font-weight: 700; /* Жирный */
 }
+
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none; /* Убирает стандартную рамку */
+    box-shadow: none; /* Убирает голубое свечение Bootstrap */
+}
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5); /* Легкая синяя тень */
+}
+
+
+footer {
+    background-color: #1d2a3a; /* Темно-синий с оттенком серого */
+    color: #adb5bd; /* Светло-серый текст */
+}
+
+footer a {
+    transition: color 0.3s ease-in-out;
+    color: #adb5bd; /* Светло-серый текст */
+}
+
+footer a:hover {
+    color: #ffffff !important; /* Белый текст при наведении */
+}
+
+
+
+
+/* -- Основная секция контента -- */
+.main-content {
+    padding: 50px 0; /* Отступы сверху и снизу */
+}
+
+.main-content h1 {
+    font-size: 2.5rem; /* Крупный заголовок */
+    color: #343a40; /* Темно-серый цвет для заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+    font-weight: 700; /* Жирный текст */
+}
+
+.main-content p {
+    font-size: 1.125rem; /* Читаемый размер текста */
+    color: #6c757d; /* Светло-серый для текста */
+    line-height: 1.6; /* Межстрочный интервал */
+    margin-bottom: 30px; /* Отступ снизу */
+}
+
+.main-content a {
+    color: #0056b3; /* Ссылка в синих тонах */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.main-content a:hover {
+    color: #003366; /* Темно-синий при наведении */
+    text-decoration: underline;
+}
+
+
+
+
+
+/* -- Карточки -- */
+.card {
+    display: flex; /* Размещение содержимого карточки в строку */
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-img-left {
+    width: 200px; /* Ширина изображения */
+    object-fit: cover; /* Изображение будет обрезаться, чтобы заполнить контейнер */
+}
+
+.card-body {
+    flex: 1; /* Позволяет тексту заполнять оставшуюся ширину */
+    padding: 20px;
+    position: relative;
+    z-index: 1; /* Чтобы текст был сверху */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1); /* Тень справа от карточки */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #343a40;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.btn-link {
+    background: none; /* Без фона */
+    color: #0056b3; /* Синий цвет для текста */
+    border: none; /* Без бордера */
+    padding: 0; /* Убираем отступы */
+    font-size: 1rem; /* Размер шрифта */
+    text-decoration: underline; /* Подчеркивание текста */
+    transition: color 0.3s, text-decoration 0.3s; /* Плавное изменение */
+}
+
+.btn-link:hover {
+    color: #003366; /* Более темный синий при наведении */
+    text-decoration: none; /* Убираем подчеркивание при наведении */
+}
+
+
+
+
+
+
