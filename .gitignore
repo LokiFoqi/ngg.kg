@@ -22,4 +22,5 @@ yarn-error.log
 /.vscode
 /.zed
 /.osp
+/.public
 /config/database.php
