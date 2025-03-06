@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
-use App\Models\Products\Product;
 use Illuminate\Http\Request;
+
+use App\Models\Products\Product;
 
 class ProductController extends Controller
 {
@@ -14,6 +15,13 @@ class ProductController extends Controller
     public function index()
     {
         //
+        if (auth()->check()) {
+            return redirect()->route('admin.products.index');
+        }
+
+        $products = Product::all();
+
+        return view('products.index', compact('products'));
     }
 
     /**

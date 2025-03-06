@@ -124,17 +124,6 @@ footer a:hover {
     margin-bottom: 30px; /* Отступ снизу */
 }
 
-.main-content a {
-    color: #0056b3; /* Ссылка в синих тонах */
-    text-decoration: none; /* Убираем подчеркивание */
-    font-weight: 500;
-    transition: color 0.3s ease-in-out;
-}
-
-.main-content a:hover {
-    color: #003366; /* Темно-синий при наведении */
-    text-decoration: underline;
-}
 
 
 
@@ -172,19 +161,21 @@ footer a:hover {
     margin-bottom: 20px;
 }
 
-.btn-link {
-    background: none; /* Без фона */
-    color: #0056b3; /* Синий цвет для текста */
-    border: none; /* Без бордера */
-    padding: 0; /* Убираем отступы */
-    font-size: 1rem; /* Размер шрифта */
-    text-decoration: underline; /* Подчеркивание текста */
-    transition: color 0.3s, text-decoration 0.3s; /* Плавное изменение */
-}
 
-.btn-link:hover {
-    color: #003366; /* Более темный синий при наведении */
-    text-decoration: none; /* Убираем подчеркивание при наведении */
+
+
+/*-- user -- */
+.user-name{
+    color: #fff;
+    background: #da4949;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+}
+.user-name:hover{
+    background: #ba3e3e;
 }
 
 
