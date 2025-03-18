@@ -24,7 +24,7 @@
                 </li>
                 @auth
                     <li class="nav-item">
-                        <a class="user-name" href="">{{ auth()->user()->name }}</a>
+                        <a class="user-name" href="/admin/pages">{{ auth()->user()->name }}</a>
                     </li>
                 @endauth
             </ul>
