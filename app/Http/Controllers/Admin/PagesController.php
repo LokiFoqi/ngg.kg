@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\Products\Page;
+use App\Models\Pages\Page;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -19,7 +20,7 @@ class PagesController extends Controller
     public function index()
     {
         //
-        $pages = Product::all();
+        $pages = Page::all();
         return view('admin.pages.index', compact('pages'));
     }
 
@@ -38,14 +39,36 @@ class PagesController extends Controller
             'image' => 'required|mimes:jpeg,png,jpg',
         ]);
 
-        $page = new Page();
-        $page->title = $request->title;
-        $page->text = $request->text;
-        $page->image = $request->image->store('pages', 'public');
+        DB::beginTransaction();
 
-        $page->save();
+        try {
+            // Сохраняем запись в БД
+            $page = new Page();
+            $page->title = $request->title;
+            $page->text = $request->text;
+            $page->save();
 
-        return redirect()->route('admin.products.index');
+            // Сохраняем изображение на сервер
+            // в директорию с уникальным именем записи
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                // Уникальное имя файла
+                $imageName = uniqid() . '.' . $image->getClienbtOriginalExtension();
+                // Сохраняем файл
+                $path = $image->storeAs('pages/' . $page->id, $imageName, 'public');
+
+                // Обновляем запись в БД
+                $page->image = $path;
+                $page->save();
+            }
+
+            DB::commit();
+
+            return redirect()->route('admin.pages.index')->with('success', 'Запись успешно создана');
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->withErrors(['error' => 'Произошла ошибка при сохранении: ' . $e->getMessage()]);
+        }
     }
 
     public function show(Page $page)

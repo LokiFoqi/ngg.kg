@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/pages', [AdminPagesController::class, 'index'])->name('admin.pages.index');
     Route::get('/admin/create', [AdminPagesController::class, 'create'])->name('admin.pages.create');
-    Route::get('/admin/pages/store', [AdminPagesController::class, 'store'])->name('admin.pages.store');
+    Route::post('/admin/pages/store', [AdminPagesController::class, 'store'])->name('admin.pages.store');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
