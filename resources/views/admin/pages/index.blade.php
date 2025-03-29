@@ -26,12 +26,12 @@
                             @foreach($pages as $index => $item)
                                 <tr>
                                     <th scope="row">{{ $index + 1 }}</th>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->title }}</td>
                                     <td>
                                         <form action="{{ route('admin.pages.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Вы уверены, что хотите удалить этот продукт?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Удалить</button>
+                                            <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
                                         </form>
                                     </td>
                             @endforeach

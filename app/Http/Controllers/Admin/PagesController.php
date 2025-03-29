@@ -53,7 +53,7 @@ class PagesController extends Controller
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 // Уникальное имя файла
-                $imageName = uniqid() . '.' . $image->getClienbtOriginalExtension();
+                $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
                 // Сохраняем файл
                 $path = $image->storeAs('pages/' . $page->id, $imageName, 'public');
 
@@ -106,6 +106,6 @@ class PagesController extends Controller
         //
         $product->delete();
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.destroy');
     }
 }

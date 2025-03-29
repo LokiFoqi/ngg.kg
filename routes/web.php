@@ -23,10 +23,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/pages', [AdminPagesController::class, 'index'])->name('admin.pages.index');
     Route::get('/admin/create', [AdminPagesController::class, 'create'])->name('admin.pages.create');
     Route::post('/admin/pages/store', [AdminPagesController::class, 'store'])->name('admin.pages.store');
+    Route::delete('/admin/pages/{product}', [AdminProductController::class, 'destroy'])->name('admin.pages.destroy');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/pages/{page}', [HomeController::class, 'show_pages'])->name('pages.show');
 });
 
 require __DIR__.'/auth.php';
